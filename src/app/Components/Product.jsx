@@ -1,3 +1,4 @@
+import { Toaster, toast } from 'react-hot-toast';
 import { AiFillStar } from 'react-icons/ai';
 
 const Product = ({ product }) => {
@@ -28,9 +29,17 @@ const Product = ({ product }) => {
             loading="lazy"
           />
           <div className="absolute inset-x-0 bottom-0 opacity-0 transition-opacity group-hover:opacity-100">
-            <button className="from-bottom w-full flex justify-center items-center bg-gradient-to-r from-green-400 to-cyan-700 text-lg text-white font-bold py-2 px-4">
-              Quick View
-            </button>
+          <button
+            className="from-bottom w-full flex justify-center items-center bg-gradient-to-r from-green-400 to-cyan-700 text-lg text-white font-bold py-2 px-4"
+            onClick={() => toast(`${name} Clicked`, {
+              style: {
+                background: 'aliceblue', // Customize the background color
+                color: '#000', // Customize the text color
+              },
+            })}
+          >
+            Quick View
+          </button>
           </div>
         </figure>
         {discountPercentage > 0 && (
@@ -60,6 +69,7 @@ const Product = ({ product }) => {
           <h3 className="text-lg text-dark text-center font-bold">BDT {discountedPrice}</h3>
           <h3 className="text-sm text-center">{showRatings(parseInt(rating))}</h3>
         </div>
+      <Toaster/>
       </div>
     )
   );
