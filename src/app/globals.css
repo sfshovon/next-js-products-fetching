@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* globals.css */
+
 .from-bottom {
   transform: translateY(100%);
   transition: transform 0.5s; 

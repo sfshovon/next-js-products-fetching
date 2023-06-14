@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "./Components/Loader";
 import Product from "./Components/Product";
 import { fetchProducts } from "./api";
+import Loader from "./loading";
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
@@ -13,7 +13,7 @@ export default function Home() {
     const fetchAllProducts = async () => {
       try {
         const products = await fetchProducts(page);
-        setAllProducts((prevProducts) => [...prevProducts, ...products]);
+        setAllProducts((prevProducts) => [...prevProducts, ...(products || [])]);
       } 
       catch (error) {
         console.error("Error:", error);
