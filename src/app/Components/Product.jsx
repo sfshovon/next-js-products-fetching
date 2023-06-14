@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 
 const Product = ({ product }) => {
@@ -22,12 +21,11 @@ const Product = ({ product }) => {
     product && (
       <div className="card h-96">
         <figure className="relative group">
-          <Image
+          <img
             className="w-full transition-transform duration-1200 ease-in transform-gpu hover:scale-110"
-            src={product?.productImage}
-            width={200}
-            height={200}
+            src={productImage}
             alt="Product"
+            loading="lazy"
           />
           <div className="absolute inset-x-0 bottom-0 opacity-0 transition-opacity group-hover:opacity-100">
             <button className="from-bottom w-full flex justify-center items-center bg-gradient-to-r from-green-400 to-cyan-700 text-lg text-white font-bold py-2 px-4">
