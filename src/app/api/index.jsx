@@ -1,5 +1,5 @@
-export const fetchProducts = async () => {
-  const url = 'https://staging-catalog-reader.qcoom.com/api/v1/product/v2?page=0&limit=30&type=Q_COMMERCE';
+export const fetchProducts = async (page) => {
+  const url = `https://staging-catalog-reader.qcoom.com/api/v1/product/v2?page=${page}&limit=30&type=Q_COMMERCE`;
 
   try {
     const response = await fetch(url);
@@ -9,4 +9,4 @@ export const fetchProducts = async () => {
   catch (error) {
     console.error(error);
   }
-} 
+};
